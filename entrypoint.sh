@@ -15,4 +15,8 @@ echo Command: trufflehog $args $GITHUB_WORKSPACE
 trufflehog $args $GITHUB_WORKSPACE > /tmp/output.json
 jq . /tmp/output.json > $GITHUB_WORKSPACE/reports/truffleHog.json
 
+echo "Raw output"
+echo $(cat /tmp/output.json)
+
+echo "Formated Output"
 echo $(cat $GITHUB_WORKSPACE/reports/truffleHog.json)
