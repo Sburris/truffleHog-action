@@ -9,3 +9,5 @@ fi
 
 mkdir -p $GITHUB_WORKSPACE/reports
 trufflehog $args $GITHUB_WORKSPACE | jq > $GITHUB_WORKSPACE/reports/truffleHog.json
+
+echo $(cat $GITHUB_WORKSPACE/reports/truffleHog.json)
