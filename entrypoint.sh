@@ -11,7 +11,6 @@ echo "Starting Scan"
 
 mkdir -p $GITHUB_WORKSPACE/reports
 
-echo "Running Command: " trufflehog $args $GITHUB_WORKSPACE | jq > $GITHUB_WORKSPACE/reports/truffleHog.json
-trufflehog $args $GITHUB_WORKSPACE | jq > $GITHUB_WORKSPACE/reports/truffleHog.json
+trufflehog $args $GITHUB_WORKSPACE | jq . > $GITHUB_WORKSPACE/reports/truffleHog.json
 
 echo $(cat $GITHUB_WORKSPACE/reports/truffleHog.json)
