@@ -7,10 +7,11 @@ if [ -n "${INPUT_SCANARGUMENTS}" ]; then
   args="${INPUT_SCANARGUMENTS}" # Overwrite if new options string is provided
 fi
 
-echo "Starting Scan"
-
+echo "Making reports directory"
 mkdir -p $GITHUB_WORKSPACE/reports
 
+echo "List workspace"
 echo $(ls -l $GITHUB_WORKSPACE)
 
+echo "Starting Scan"
 trufflehog $args $GITHUB_WORKSPACE | jq . > $GITHUB_WORKSPACE/reports/truffleHog.json
