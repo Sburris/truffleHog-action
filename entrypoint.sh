@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/sh
 set -e # Abort script at first error
 
 args="--regex --json --max_depth=500" # Default trufflehog options
@@ -11,12 +11,4 @@ echo "Starting Scan"
 
 mkdir -p $GITHUB_WORKSPACE/reports
 
-echo Command: trufflehog $args $GITHUB_WORKSPACE
-trufflehog $args $GITHUB_WORKSPACE > /tmp/output.json
-jq . /tmp/output.json > $GITHUB_WORKSPACE/reports/truffleHog.json
-
-echo "Raw output"
-echo $(cat /tmp/output.json)
-
-echo "Formated Output"
-echo $(cat $GITHUB_WORKSPACE/reports/truffleHog.json)
+trufflehog $args $GITHUB_WORKSPACE | jq . > $GITHUB_WORKSPACE/reports/truffleHog.json
