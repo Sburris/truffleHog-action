@@ -11,4 +11,6 @@ echo "Starting Scan"
 
 mkdir -p $GITHUB_WORKSPACE/reports
 
+echo $(ls -l $GITHUB_WORKSPACE)
+
 trufflehog $args $GITHUB_WORKSPACE | jq . > $GITHUB_WORKSPACE/reports/truffleHog.json
