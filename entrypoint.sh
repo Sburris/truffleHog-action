@@ -14,4 +14,5 @@ echo "List workspace"
 echo $(ls -l $GITHUB_WORKSPACE)
 
 echo "Starting Scan"
+echo Command: trufflehog $args $GITHUB_WORKSPACE | jq . > $GITHUB_WORKSPACE/reports/truffleHog.json
 trufflehog $args $GITHUB_WORKSPACE | jq . > $GITHUB_WORKSPACE/reports/truffleHog.json
