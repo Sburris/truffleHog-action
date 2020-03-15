@@ -1,9 +1,11 @@
   
 name: 'TruffleHog Action'
-runs:
-  using: 'docker'
-  image: 'Dockerfile'
+
 inputs:
   scanArguments:
     description: 'Argument options for scan.'
     required: false
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
